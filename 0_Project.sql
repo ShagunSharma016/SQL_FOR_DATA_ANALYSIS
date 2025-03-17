@@ -1,4 +1,4 @@
--- 1.
+-- 1. What are top-paying data science jobs?
 
 WITH different_jobs AS(
     SELECT
@@ -36,7 +36,8 @@ ORDER BY
     job_title_short,salary_year_avg DESC;
 
 
--- 2
+-- 2. What skills are required for these top-paying jobs?
+
 WITH top_paying_skills AS(
     SELECT
         job_id,
@@ -73,7 +74,8 @@ ORDER BY
     job_title_short,salary_year_avg DESC;
 
 
--- 3.
+-- 3. What skills are most in demand for data science jobs?
+
 WITH top_demand_skills AS(
     SELECT
         job_postings_fact.job_title_short,
@@ -104,7 +106,8 @@ ORDER BY
     job_title_short,Skill_count DESC;
 
 
--- 4..
+-- 4. Which skills are associated with higher salaries?
+
 SELECT
     skills_dim.skills,
     ROUND(AVG(salary_year_avg),2) AS Average_salary
@@ -129,7 +132,8 @@ ORDER BY
 
 LIMIT 25;
 
--- 5.
+-- 5. What are the most optimal skills to learn?
+
 SELECT
     skills_dim.skill_id,
     skills_dim.skills,
